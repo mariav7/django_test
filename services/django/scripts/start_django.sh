@@ -1,6 +1,9 @@
 #!/bin/bash
 
-tree /static
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
 
 # Apply database migrations
 echo "Applying database migrations..."
@@ -14,6 +17,4 @@ echo "Starting server..."
 python src/manage.py npminstall
 python src/manage.py runserver 0.0.0.0:8000
 
-# node -v
-# npm -v
 

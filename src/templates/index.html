@@ -1,14 +1,69 @@
+<!-- {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Test</title>
+    <link href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Ejemplo de Bootstrap</h1>
+        <p>Este es un ejemplo de cómo puedes usar Bootstrap en tu proyecto de Django.</p>
+        <button class="btn btn-secondary">Botón de Bootstrap</button>
+    </div>
+    <script src="{% static 'bootstrap/dist/js/bootstrap.min.js' %}"></script>
+</body>
+</html> -->
+
+
 {% load static %}
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite aaapp</title>
+    <title>Three JS</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- <script src="../node_modules/three/build/three.module.js"></script> -->
+    <!-- <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@v0.149.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@v0.149.0/examples/jsm/"
+        }
+      }
+    </script> -->
   </head>
   <body>
     <div id="app"></div>
-    <script type="module" src="{% static 'main.js' %}"></script>
+    <script>
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera( 90, window.innerWidth / window.innerHeight, 0.1, 1000 );
+  
+      const renderer = new THREE.WebGLRenderer();
+      renderer.setSize( window.innerWidth, window.innerHeight );
+      document.body.appendChild( renderer.domElement );
+  
+      const geometry = new THREE.BoxGeometry( 1, 1, 1 );
+      const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+      const cube = new THREE.Mesh( geometry, material );
+      scene.add( cube );
+  
+      camera.position.z = 5;
+  
+      function animate() {
+        requestAnimationFrame( animate );
+  
+        cube.rotation.x += 0.01;
+        cube.rotation.y += 0.01;
+  
+        renderer.render( scene, camera );
+      }
+  
+      animate();
+  
+    </script>
   </body>
-</html>
+  </html>

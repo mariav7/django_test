@@ -12,8 +12,6 @@ services:
     env_file:
       - .env
     command: ./start_django.sh
-    volumes:
-      - ./src:/code/src
     ports:
       - "8000:8000"
     depends_on:

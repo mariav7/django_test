@@ -24,6 +24,3 @@ function animate() {
 }
 
 animate();
-
-
-// alert("Hey")
